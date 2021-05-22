@@ -1,6 +1,4 @@
-# h1
 # 我的blog
 
 
-## h2
-## This is h2 type
+## 這是練習 Github Page
