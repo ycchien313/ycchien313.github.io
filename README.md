@@ -13,3 +13,8 @@
 1. 安裝 axios
 2. 解析 API
 3. 寫 axios 程式
+
+### 1. 安裝 axios
+`
+npm install axios
+`
