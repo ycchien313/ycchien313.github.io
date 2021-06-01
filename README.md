@@ -23,8 +23,18 @@ npm install axios
 D:\nodejs\crawler.js → D:\nodejs\ 底下安裝 axios
 
 
-
 ### 2. 解析 API
+API：https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20210601&stockNo=2330
+
+此為臺灣證券交易所 API，可以看到一個網址帶有三個參數
+- url = https://www.twse.com.tw/exchangeReport/STOCK_DAY?
+- response = json
+- date = 20210601
+- stockNo =2330
+
+
+
+
 
 
 #### 1. 安裝 axios
