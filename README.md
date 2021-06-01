@@ -35,5 +35,24 @@ API：https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=202106
 
 ### 3. 寫 axios 程式
 ```javascript= 
+const axios = require("axios")
+const config = {
+    method: "get",
+    responseType: "json",
+    baseURL: "https://www.twse.com.tw/",
+    url: "/exchangeReport/STOCK_DAY",
+    params: {
+        response: "json",
+        date: "20210601",
+        stockNo: "2330"
+    }
+};
 
+(function(){
+    axios(config)
+    .then((response) => {
+        console.log(response)       //印出 response object
+        console.log(response.data)  //印出 API 提供的資料
+    })
+})()
 ```
