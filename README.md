@@ -15,13 +15,16 @@
 3. 寫 axios 程式
 
 ### 1. 安裝 axios
-`
-在程式檔案的目錄下安裝 axios
-ex. 有一個爬蟲程式檔於 D:\nodejs\crawler.js，那就在 D:\nodejs 底下安裝
-`
 ```js
 npm install axios
 ```
+`
+在程式檔案的目錄下安裝 axios，例： <br>
+> D:\nodejs\crawler.js
+>> D:\nodejs
+>> npm install axios
+`
+
 
 ### 2. 解析 API
 
