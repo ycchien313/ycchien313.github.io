@@ -8,7 +8,9 @@
 ## [test](https://ycchien313.github.io/test/)
 
 
+
 # Node.js Crawler 爬蟲
+
 ## 步驟
 1. 安裝 axios
 2. 解析 API
@@ -27,7 +29,8 @@ D:\nodejs\crawler.js → D:\nodejs\ 底下安裝 axios
 API：https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20210601&stockNo=2330
 
 此為臺灣證券交易所 API，可以看到一個網址帶有三個參數
-- url = https://www.twse.com.tw/exchangeReport/STOCK_DAY?
+- url = https://www.twse.com.tw
+- baseURL = /exchangeReport/STOCK_DAY
 - response = json
 - date = 20210601
 - stockNo =2330
@@ -39,7 +42,7 @@ const axios = require("axios")
 const config = {
     method: "get",
     responseType: "json",
-    baseURL: "https://www.twse.com.tw/",
+    baseURL: "https://www.twse.com.tw",
     url: "/exchangeReport/STOCK_DAY",
     params: {
         response: "json",
@@ -56,3 +59,8 @@ const config = {
     })
 })()
 ```
+
+
+# CallBack
+
+
