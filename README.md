@@ -15,7 +15,7 @@
 3. 寫 axios 程式
 
 ### 1. 安裝 axios
-```js
+```javascript
 npm install axios
 ```
 在程式檔案的目錄下安裝 axios，例：
