@@ -15,7 +15,7 @@
 3. 寫 axios 程式
 
 ### 1. 安裝 axios
-```javascript {.line-numbers}
+```javascript= 
 npm install axios
 ```
 在程式檔案的目錄下安裝 axios，例：
@@ -33,9 +33,7 @@ API：https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=202106
 - stockNo =2330
 
 
+### 3. 寫 axios 程式
+```javascript= 
 
-
-
-
-#### 1. 安裝 axios
-###### 1. 安裝 axios
+```
