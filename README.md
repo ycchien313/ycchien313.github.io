@@ -20,12 +20,7 @@ npm install axios
 ```
 在程式檔案的目錄下安裝 axios，例：
 
-D:\nodejs\crawler.js
-
-→ D:\nodejs
-
-→ npm install axios
-
+D:\nodejs\crawler.js → D:\nodejs\ 底下安裝 axios
 
 
 
