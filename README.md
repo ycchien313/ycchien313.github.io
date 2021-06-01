@@ -18,12 +18,15 @@
 ```js
 npm install axios
 ```
-在程式檔案的目錄下安裝 axios，例： <br>
-`
+在程式檔案的目錄下安裝 axios，例：
+
+
 D:\nodejs\crawler.js
-→D:\nodejs
-→npm install axios <br>
-`
+
+→ D:\nodejs
+
+→ npm install axios <br>
+
 
 
 
