@@ -15,7 +15,7 @@
 3. 寫 axios 程式
 
 ### 1. 安裝 axios
-```
+```js
 npm install axios
 ```
 
