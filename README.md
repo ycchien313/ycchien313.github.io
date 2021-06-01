@@ -61,6 +61,9 @@ const config = {
 ```
 
 
+# 同步(Synchronous)/非同步(Asynchronous)
+
+
 # CallBack
 
 
