@@ -60,13 +60,17 @@
                 justify-content: center;
             }
 
-            .btn-row button {
-                margin: 0 10px;
+            @media screen and (max-width: 768px) {
+                .btn-row {
+                    width: 300px;
+                    text-align: center;
+                }
             }
 
-            .vincent-container {
-                margin-top: 50px;
+            .btn-row button {
+                margin: 10px;
             }
+
             .vincent {
                 display: inline-block;
                 font-size: 10rem;
@@ -77,15 +81,35 @@
                 animation-duration: 0.9s;
                 animation-iteration-count: infinite;
             }
+            @media screen and (max-width: 768px) {
+                .vincent {
+                    font-size: 8rem;
+                }
+            }
+
+            /* 單位 */
             .unit {
                 font-size: 2rem;
                 font-style: italic;
             }
+            @media screen and (max-width: 768px) {
+                .unit {
+                    font-size: 1rem;
+                }
+            }
+
             .vincent-can {
                 display: inline-block;
                 font-size: 10rem;
                 font-family: 'Noto Sans TC', sans-serif;
                 color: greenyellow;
+            }
+            @media screen and (max-width: 768px) {
+                .vincent-can {
+                    width: 350px;
+                    font-size: 8rem;
+                    text-align: center;
+                }
             }
             .vincent-container i:hover {
                 text-shadow: 0 2px 2px #333;
@@ -93,38 +117,90 @@
                 cursor: pointer;
             }
 
+            /* 減速按鈕 */
             .down {
+                width: 58px;
+                height: 38px;
                 transition: 1s;
             }
+            .down span {
+                transition: 1s;
+            }
+            /* 按鈕特效文字 */
+            .ml4 {
+                position: relative;
+                margin: 0 0 60px 0;
+                font-size: 1.5rem;
+            }
+            .ml4 .letters {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                top: 0;
+                right: 0;
+                opacity: 0;
+            }
 
+            .kevin {
+                opacity: 0;
+                transition: 0.5s;
+            }
+
+            /* 影片 */
             .audio-container {
                 width: 100vw;
                 height: 100vh;
                 position: absolute;
                 z-index: -1;
             }
+            .typhoon-video {
+                width: 100%;
+                height: 100%;
+            }
+            /* 影片文字 */
+            .typhoon-talk1 {
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, 0);
+                font-size: 2rem;
+                color: #fff;
+                text-align: center;
+                transition: 0.5s;
+                opacity: 0;
+            }
+            .typhoon-talk2 {
+                position: absolute;
+                top: 60%;
+                left: 60%;
+                transform: translate(-50%, 50%);
+                font-size: 2rem;
+                color: #fff;
+                transition: 1s;
+                opacity: 0;
+            }
         </style>
     </head>
     <body>
         <div class="audio-container">
-            <iframe
-                class="typhoon-video"
-                width="100%"
-                height="100%"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
+            <video class="typhoon-video" autoplay></video>
+            <span class="typhoon-talk1">颱風祝小敏生日快樂</span>
+            <span class="typhoon-talk2">還是唱了..</span>
         </div>
         <div class="page-container">
             <div class="btn-row">
                 <button class="go btn btn-secondary">Power</button>
-                <button class="up btn btn-secondary">小敏</button>
-                <button class="down d-none btn btn-secondary">瓜弟</button>
-                <button class="kevin d-none btn btn-secondary">蝌蚪</button>
-                <button class="typhoon d-none btn btn-secondary">颱風</button>
-                <button class="can d-none btn btn-primary btn-lg">Can</button>
+                <button class="up btn btn-secondary d-none">小敏</button>
+                <button class="down btn btn-secondary d-none">
+                    <span>瓜弟</span>
+                    <h1 class="ml4">
+                        <span class="letters letters-1">瓜弟</span>
+                        <span class="letters letters-2">安全</span>
+                    </h1>
+                </button>
+                <button class="kevin btn btn-secondary d-none">蝌蚪</button>
+                <button class="typhoon btn btn-secondary d-none">颱風</button>
+                <button class="can btn btn-primary btn-lg d-none">Can</button>
             </div>
             <div class="vincent-container">
                 <span class="vincent">三草</span>
@@ -137,7 +213,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
         <script>
             // 影片 iframe
             let typhoonVideo = document.querySelector('.typhoon-video');
@@ -147,6 +223,10 @@
             let unit = document.querySelector('.unit');
             let vincentCan = document.querySelector('.vincent-can');
             let heart = document.querySelector('.vincent-can i');
+            let typhoonTalk1 = document.querySelector('.typhoon-talk1');
+            let typhoonTalk2 = document.querySelector('.typhoon-talk2');
+            let downText = document.querySelector('.down span');
+            let animeMl4 = document.querySelector('.ml4');
 
             // 按鈕
             let btnRow = document.querySelector('.btn-row');
@@ -160,10 +240,27 @@
             let duration = 1;
             let step = 0.1;
 
+            // Power 按鈕
             go.addEventListener('click', () => {
                 vincent.style.animationName = 'speed';
+
+                up.classList.remove('d-none');
+
+                const words = [
+                    'spray',
+                    'limit',
+                    'elite',
+                    'exuberant',
+                    'destruction',
+                    'present',
+                ];
+                const result = words.filter((word) => {
+                    return word.length > 6;
+                });
+                console.log(result);
             });
 
+            // 小敏 按鈕
             up.addEventListener('click', () => {
                 if (vincent.style.animationName !== '') {
                     duration <= 0.0125
@@ -184,7 +281,7 @@
                             title: '警告 小敏在看你',
                             imageUrl:
                                 'https://lh3.googleusercontent.com/zYZnxRRzsnILdb-bqx0ukwoq1_Cnz6yorlPTaKEB-efXdraLSGe2dJs20zabzrIHbCHuHTiGxPYyKH4AicCyI74dApUONIjXs6VkFum2hosXENQRUhz4V-9gSPjYHRsfXzeiJida5MU=w2400',
-                            imageHeight: 600,
+                            imageHeight: 400,
                             showClass: {
                                 popup: 'animate__animated animate__fadeInDown',
                             },
@@ -198,9 +295,12 @@
                 }
             });
 
+            // 瓜弟 按鈕
             down.addEventListener('click', () => {
                 duration += 0.1;
-                duration >= 0.9 && (duration = 0.9);
+                duration > 0.9 && (duration = 0.9);
+                duration < 0.7 && (duration = 0.7);
+                console.log(duration);
 
                 vincent.style.animationDuration = `${duration}s`;
 
@@ -209,9 +309,71 @@
                 else if (duration <= 0.6) vincent.style.color = 'orange';
                 else if (duration > 0.6) vincent.style.color = 'greenyellow';
 
+                down.style.width = '100px';
+                downText.classList.add('d-none');
+                animeMl4.classList.remove('d-none');
                 kevin.classList.remove('d-none');
+
+                setTimeout(() => {
+                    down.style.width = '58px';
+                    animeMl4.classList.add('d-none');
+                    downText.classList.remove('d-none');
+                    kevin.style.opacity = 1;
+                }, 4200);
+
+                let ml4 = {};
+                ml4.opacityIn = [0, 1];
+                ml4.scaleIn = [0.2, 1];
+                ml4.scaleOut = 3;
+                ml4.durationIn = 800;
+                ml4.durationOut = 600;
+                ml4.delay = 500;
+
+                anime
+                    .timeline({ loop: false })
+                    .add({
+                        targets: '.ml4',
+                        opacity: 1,
+                        duration: 100,
+                        delay: 100,
+                    })
+                    .add({
+                        targets: '.ml4 .letters-1',
+                        opacity: ml4.opacityIn,
+                        scale: ml4.scaleIn,
+                        duration: ml4.durationIn,
+                    })
+                    .add({
+                        targets: '.ml4 .letters-1',
+                        opacity: 0,
+                        scale: ml4.scaleOut,
+                        duration: ml4.durationOut,
+                        easing: 'easeInExpo',
+                        delay: ml4.delay,
+                    })
+                    .add({
+                        targets: '.ml4 .letters-2',
+                        opacity: ml4.opacityIn,
+                        scale: ml4.scaleIn,
+                        duration: ml4.durationIn,
+                    })
+                    .add({
+                        targets: '.ml4 .letters-2',
+                        opacity: 0,
+                        scale: ml4.scaleOut,
+                        duration: ml4.durationOut,
+                        easing: 'easeInExpo',
+                        delay: ml4.delay,
+                    })
+                    .add({
+                        targets: '.ml4',
+                        opacity: 0,
+                        duration: 500,
+                        delay: 500,
+                    });
             });
 
+            // Kevin 按鈕
             kevin.addEventListener('click', () => {
                 duration = 0.001;
 
@@ -222,25 +384,35 @@
                     title: '特斯拉是我',
                     imageUrl:
                         'https://lh3.googleusercontent.com/d8zfqm0lGUvtvJc_PTEzZrHYlIn6tlqAYFyA96q5CX-pPnU7ojRsMR81ijTlmYknvatULDM04Yj7hiQ4uXijO5IQ_G-Em6VngyeDFhTHsOZxrS2X_UjfgI-9xwBpmrGsLUI4rgGXBWM=w2400',
+                    imageHeight: 400,
                 }).then(() => {
                     typhoon.classList.remove('d-none');
                 });
             });
 
+            // 颱風 按鈕
             typhoon.addEventListener('click', () => {
                 typhoonVideo.setAttribute(
                     'src',
-                    'https://www.youtube.com/embed/TmpTGV3_XYU?&autoplay=1&end=9'
+                    '../videos/颱風-不知道哪首.mp4'
                 );
+
+                setTimeout(() => {
+                    typhoonTalk1.style.opacity = 1;
+                }, 1000);
+                setTimeout(() => {
+                    typhoonTalk2.style.opacity = 1;
+                }, 5000);
 
                 vincent.classList.add('d-none');
                 unit.classList.add('d-none');
 
                 setTimeout(() => {
                     can.classList.remove('d-none');
-                }, 10000);
+                }, 9000);
             });
 
+            // Can 按鈕
             can.addEventListener('click', () => {
                 Swal.fire({
                     title: '通通別吵',
@@ -251,9 +423,10 @@
                 });
             });
 
+            // 愛心
             heart.addEventListener('click', () => {
                 Swal.fire({
-                    title: '原來你們想重來啊..',
+                    title: '原來你們想再玩一次啊..',
                 }).then(() => {
                     history.go(0);
                 });
