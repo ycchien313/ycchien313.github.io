@@ -183,7 +183,7 @@
     </head>
     <body>
         <div class="audio-container">
-            <video class="typhoon-video" autoplay></video>
+            <video class="typhoon-video d-none" autoplay></video>
             <span class="typhoon-talk1">颱風祝小敏生日快樂</span>
             <span class="typhoon-talk2">還是唱了..</span>
         </div>
@@ -392,6 +392,7 @@
 
             // 颱風 按鈕
             typhoon.addEventListener('click', () => {
+                typhoonVideo.classList.remove('d-none');
                 typhoonVideo.setAttribute(
                     'src',
                     '../videos/颱風-不知道哪首.mp4'
