@@ -8,6 +8,8 @@
 
 ## [vincent](https://ycchien313.github.io/vincent)
 
+## [fireworks](http://ycchien313.github.io/firework)
+
 # Node.js Crawler 爬蟲
 
 ## 步驟
@@ -32,11 +34,11 @@ API：https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=202106
 
 此為臺灣證券交易所 API，可以看到一個網址帶有三個參數
 
--   url = https://www.twse.com.tw
--   baseURL = /exchangeReport/STOCK_DAY
--   response = json
--   date = 20210601
--   stockNo =2330
+- url = https://www.twse.com.tw
+- baseURL = /exchangeReport/STOCK_DAY
+- response = json
+- date = 20210601
+- stockNo =2330
 
 ### 3. 寫 axios 程式
 
