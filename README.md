@@ -4,4 +4,4 @@
 
 ## [vincent](https://ycchien313.github.io/vincent)
 
-## [fireworks](http://ycchien313.github.io/firework)
+## [fireworks](http://ycchien313.github.io/fireworks)
